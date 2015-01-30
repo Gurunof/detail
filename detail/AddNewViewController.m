@@ -35,5 +35,13 @@
 */
 
 - (IBAction)btnSave:(id)sender {
+    
+    
+    
+    
+    
+    
+    
+    [self.navigationController popViewControllerAnimated:YES]; //возврат
 }
 @end

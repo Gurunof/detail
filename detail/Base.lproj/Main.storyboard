@@ -23,7 +23,7 @@
         <!--Add New View Controller-->
         <scene sceneID="xAV-b8-0xc">
             <objects>
-                <viewController id="LH2-jK-cXC" customClass="AddNewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNew" id="LH2-jK-cXC" customClass="AddNewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UXD-6b-DOw"/>
                         <viewControllerLayoutGuide type="bottom" id="7cP-KT-gSq"/>

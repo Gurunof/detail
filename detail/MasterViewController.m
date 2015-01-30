@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "AddNewViewController.h"
 
 @interface MasterViewController ()
 {
@@ -28,7 +29,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertDetail:)];
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
@@ -38,11 +40,13 @@
 }
 
 -(void)startValues{
-    
+   
 }
 
--(void)insertDetail{
-    
+-(void)insertDetail:(id)sender{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AddNewViewController *vcNew=[storyboard instantiateViewControllerWithIdentifier:@"AddNew"];
+    [self.navigationController pushViewController:vcNew animated:YES];
 }
 
 - (void)insertNewObject:(id)sender {
@@ -71,6 +75,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
+    }
+    
+    if ([[segue identifier] isEqualToString:@"AddNew"]){
+        [segue.destinationViewController setTitle:@"AddNew"];
     }
 }
 
