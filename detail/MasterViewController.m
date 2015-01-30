@@ -10,6 +10,10 @@
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
+{
+    NSString *_newNameOfDetail;
+    NSString *_newTextOfDetail;
+}
 
 @end
 
@@ -33,6 +37,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)startValues{
+    
+}
+
+-(void)insertDetail{
+    
+}
+
 - (void)insertNewObject:(id)sender {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -42,8 +54,6 @@
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
     
-    
-        
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
